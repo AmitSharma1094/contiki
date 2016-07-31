@@ -53,17 +53,17 @@ ipso_objects_init(void)
 #endif
 
 #if PLATFORM_HAS_BUTTON
-  ipso_button_init();
+//  ipso_button_init();
 #endif
 
 #ifdef IPSO_LIGHT_CONTROL
-  ipso_light_control_init();
+//  ipso_light_control_init();
 #elif PLATFORM_HAS_LEDS
-  ipso_leds_control_init();
+//  ipso_leds_control_init();
 #endif
 
 #ifdef IPSO_3311
-  ipso_switch_control_init();
+  ipso_light_control_init();
 #endif
 
 #ifdef IPSO_HUMIDITY
