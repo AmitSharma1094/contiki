@@ -47,8 +47,9 @@
 #include "lwm2m-object.h"
 #include "lwm2m-engine.h"
 // PSoC Header file
+#ifdef PSOC
 #include "dev/psoc.h"
-
+#endif
 /*---------------------------------------------------------------------------*/
 // #define
 #define MAX_3311_PSOC_RESOURCE 5
@@ -104,7 +105,9 @@ write_state(lwm2m_context_t *ctx, const uint8_t *inbuf, size_t insize,
 				states[idx].is_on = 1;
 				states[idx].last_on_time = clock_seconds();
 				states[idx].dim_level = 100;
+#ifdef PSOC
 				psoc.configure(RESOURCE_SWITCH1 + idx, 100);
+#endif
 				printf("Calling configure API from psoc.c, so that resource[SOCKET%d] be On i.e. value set as 100 \n", idx);
 			}
 		} 
@@ -117,7 +120,9 @@ write_state(lwm2m_context_t *ctx, const uint8_t *inbuf, size_t insize,
 				states[idx].last_on_time = clock_seconds();
 				states[idx].dim_level = 0;
 				states[idx].total_on_time += clock_seconds() - states[idx].last_on_time;
+#ifdef PSOC
 				psoc.configure(RESOURCE_SWITCH1 + idx, 0);
+#endif
 				printf("Calling configure API from psoc.c, so that resource[SOCKET%d] be On i.e. value set as 0 \n", idx);
 			}
 		}
@@ -178,7 +183,9 @@ write_dim(lwm2m_context_t *ctx, const uint8_t *inbuf, size_t insize,
 		}
 
 		states[idx].dim_level = value;
+#ifdef PSOC
 		psoc.configure(RESOURCE_SWITCH1 + idx, value);
+#endif
 		printf("Calling configure API from psoc.c, so that resource[SOCKET%d] be On i.e. value set as %d \n", idx), value;
 		if(value > 0) 
 		{
