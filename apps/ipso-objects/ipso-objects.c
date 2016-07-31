@@ -61,6 +61,14 @@ ipso_objects_init(void)
 #elif PLATFORM_HAS_LEDS
   ipso_leds_control_init();
 #endif
+
+#ifdef IPSO_3311
+  ipso_switch_control_init();
+#endif
+
+#ifdef IPSO_HUMIDITY
+  ipso_humidity_init();
+#endif
 }
 /*---------------------------------------------------------------------------*/
 /** @} */
