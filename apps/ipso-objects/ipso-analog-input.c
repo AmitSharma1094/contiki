@@ -93,7 +93,7 @@ LWM2M_RESOURCES(analog_input_resources,
                 );		
 LWM2M_INSTANCES(analog_input_instances,
 		LWM2M_INSTANCE(0, analog_input_resources));
-LWM2M_OBJECT(analog_input, 3303, analog_input_instances);
+LWM2M_OBJECT(analog_input, 3202, analog_input_instances);
 /*---------------------------------------------------------------------------*/
 static int
 read_analog_input(int32_t *value)
@@ -137,7 +137,7 @@ handle_periodic_timer(void *ptr)
 }
 /*---------------------------------------------------------------------------*/
 void
-IPSO_ANALOG_INPUT_init(void)
+ipso_analog_input_init(void)
 {
   int32_t v;
   min_analog_input = IPSO_ANALOG_INPUT_MAX;
@@ -147,7 +147,7 @@ IPSO_ANALOG_INPUT_init(void)
   if(IPSO_ANALOG_INPUT.init) {
     IPSO_ANALOG_INPUT.init();
   }
-#endif /* IPSO_ILLUMIANNCE */
+#endif /* IPSO_ANALOG_INPUT */
 
   /* register this device and its handlers - the handlers automatically
      sends in the object to handle */

@@ -66,6 +66,14 @@ ipso_objects_init(void)
   ipso_light_control_init();
 #endif
 
+#ifdef IPSO_3202
+  ipso_analog_input_init();
+#endif
+
+#ifdef IPSO_ILLUMINANCE
+  ipso_illuminance_init();
+#endif
+
 #ifdef IPSO_HUMIDITY
   ipso_humidity_init();
 #endif
