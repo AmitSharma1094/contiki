@@ -1,6 +1,6 @@
 CONTIKI_PROJECT = example-ipso-objects
 
-CONTIKI_SOURCEFILES += serial-protocol.c example-ipso-temperature.c
+CONTIKI_SOURCEFILES += serial-protocol.c example-ipso-temperature.c example-ipso-illumination.c example-ipso-analog-input.c
 
 all: $(CONTIKI_PROJECT)
 
